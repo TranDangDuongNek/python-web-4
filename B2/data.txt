@@ -1,0 +1,3 @@
+name : mr
+age : 23
+tall : 1m7
