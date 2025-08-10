@@ -8,7 +8,6 @@ class Browser:
         self.back_history = []
         self.forward_history = []
 
-
     def visit_page(self, page_name):
         #  lưu trang hiện tại vào back
         self.back_history.append(self.current_page)
@@ -26,7 +25,7 @@ class Browser:
 
     def forward(self) :
         # Nếu không có lịch sử chuyển tiếp, trả về "No forward history"
-        if len(self.foreward_history) == 0: return "No forward history"
+        if len(self.forward_history) == 0: return "No forward history"
         # Lưu trang hiện tại vào lịch sử quay lại
         self.back_history.append(self.current_page)
         # Di chuyển đến trang tiếp theo trong lịch sử chuyển tiếp
@@ -36,13 +35,14 @@ class Browser:
     
 def testdriver():
     # tạo obj browser
-    Browser = Browser()
+    browser = Browser()
     functions_table = """ user number 1,2,3 for functionns:
         1. VIsit page --> INput page name
         2. <-- Back
         3. --> Forward
         4. exit
     """
+    request = ""
     while request != "4":
         # hiển thị bảng chức năng
         print(functions_table)
@@ -57,11 +57,11 @@ def testdriver():
                     print("Page name cannot be empty")
                     continue
                 #  page name đúng yêu cầu
-                print(Browser.visit_page(page_name))
+                print(browser.visit_page(page_name))
             case "2":
-                print(Browser.back())
+                print(browser.back())
             case "3":
-                print(Browser.forward())
+                print(browser.forward())
             case "4":
                 print("Exiting browser")
                 break
@@ -71,5 +71,5 @@ def testdriver():
         #  xoá request
         request = ""
 
-testdrive()
+testdriver()
     
